@@ -6,6 +6,8 @@ file.copy('../../mtb-macrophage-LD/data/final-data-abundance-no-norm-mtb-LD.csv'
           './data/')
 file.copy('../../mtb-macrophage-LD/func-room.R',
           './')
+file.copy('../../mtb-macrophage-LD/data/gene-id-to-genesymbol-annotation.csv',
+          './data/')
 rm(list=ls())
 abund_dat <- read.csv(
   './data/final-data-abundance-no-norm-mtb-LD.csv',
