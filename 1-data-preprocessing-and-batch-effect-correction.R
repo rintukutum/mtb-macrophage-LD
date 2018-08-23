@@ -1,13 +1,13 @@
-dir.create('./data',showWarnings = FALSE)
-dir.create('./figures',showWarnings = FALSE)
-file.copy('../../mtb-macrophage-LD/data/phenotype-information-mtb-lipid-droplet-TMT-31July18.csv',
-          './data/')
-file.copy('../../mtb-macrophage-LD/data/final-data-abundance-no-norm-mtb-LD.csv',
-          './data/')
-file.copy('../../mtb-macrophage-LD/func-room.R',
-          './')
-file.copy('../../mtb-macrophage-LD/data/gene-id-to-genesymbol-annotation.csv',
-          './data/')
+# dir.create('./data',showWarnings = FALSE)
+# dir.create('./figures',showWarnings = FALSE)
+# file.copy('../../mtb-macrophage-LD/data/phenotype-information-mtb-lipid-droplet-TMT-31July18.csv',
+#           './data/')
+# file.copy('../../mtb-macrophage-LD/data/final-data-abundance-no-norm-mtb-LD.csv',
+#           './data/')
+# file.copy('../../mtb-macrophage-LD/func-room.R',
+#           './')
+# file.copy('../../mtb-macrophage-LD/data/gene-id-to-genesymbol-annotation.csv',
+#           './data/')
 rm(list=ls())
 abund_dat <- read.csv(
   './data/final-data-abundance-no-norm-mtb-LD.csv',
