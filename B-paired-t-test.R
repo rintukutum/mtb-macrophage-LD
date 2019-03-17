@@ -1,4 +1,5 @@
 rm(list=ls())
+dir.create("./figures_vinny", showWarnings = FALSE)
 load('./data/norm_tech_batch.RData')
 pheno <- read.csv(
   './data/phenotype-information-mtb-lipid-droplet-TMT-31July18.csv',
@@ -71,7 +72,7 @@ out_final <- data.frame(
 write.csv(out_final,'./data/paired-t-test-result-25Oct18.csv')
 ############################
 ############################
-pdf('./figures/B-volcano.pdf',
+pdf('./figures_vinny/B-volcano.pdf',
     width = 6,
     height = 6)
 plot(y=-log10(out_final$adj.pvalue.FDR),x=out_final$log2FC,
@@ -106,7 +107,7 @@ colsGentleman <- function() {
 }
 mat.all <- dat_z_score 
 rownames(mat.all) <- geneAcc2geneSym[rownames(mat.all)]
-pdf('./figures/B-heatmap-zscore-meanExpr.pdf',
+pdf('./figures_vinny/B-heatmap-zscore-meanExpr.pdf',
     width = 3.5,
     height = 18)
 gplots::heatmap.2(
@@ -128,7 +129,7 @@ idx.sig <- as.character(out_final$sig_status) == 'yes'
 sig.genes <- rownames(out_final[idx.sig,])
 sig.mat <- dat_z_score[sig.genes,]
 rownames(sig.mat) <- geneAcc2geneSym[rownames(sig.mat)]
-pdf('./figures/B-heatmap-zscore-meanExpr-sig-only.pdf',
+pdf('./figures_vinny/B-heatmap-zscore-meanExpr-sig-only.pdf',
     width = 3.5,
     height = 10)
 gplots::heatmap.2(
@@ -151,7 +152,7 @@ up.mat <- dat_z_score[up.genes,]
 down.genes <- rownames(out_final[idx.sig & !idx.up,])
 mat <- rbind(up.mat,down.mat)
 rownames(up.mat) <- geneAcc2geneSym[rownames(up.mat)]
-pdf('./figures/B-heatmap-zscore-meanExpr-sig-only-UP.pdf',
+pdf('./figures_vinny/B-heatmap-zscore-meanExpr-sig-only-UP.pdf',
     width = 3.5,
     height = 9)
 gplots::heatmap.2(
@@ -174,7 +175,7 @@ load('./data/geneAccNgeneSym_heatmap.RData')
 down.genes <- rownames(out_final[idx.sig & !idx.up,])
 down.mat <- dat_z_score[down.genes,]
 rownames(down.mat) <- geneAcc2geneSym[rownames(down.mat)]
-pdf('./figures/B-heatmap-zscore-meanExpr-sig-only-DOWN.pdf',
+pdf('./figures_vinny/B-heatmap-zscore-meanExpr-sig-only-DOWN.pdf',
     width = 3.5,
     height = 8)
 gplots::heatmap.2(
